@@ -4,6 +4,6 @@ module.exports = {
             "PASSED :)" : 
             `BOO :(` ,
 
-    test : () => console.log("success")
+    capitalize : e => `${e.charAt(0).toUpperCase()}${e.slice(1)}`,
       
-  };
+};

@@ -58,7 +58,3 @@ console.log( myFun.isSame(example3, [0,1]) )
 
 
 
-
-
-
-
