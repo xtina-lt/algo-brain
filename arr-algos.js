@@ -1,4 +1,4 @@
-const myFun = require('./myFun.js')
+const myFun = require('./my-fun.js')
 
 // BLIND 75 ----------------------------------------
 // Array
