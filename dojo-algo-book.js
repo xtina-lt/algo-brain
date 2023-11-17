@@ -27,7 +27,7 @@ const printSum = () => {
     console.log( result.substring(0, result.length - 2) )
     console.log("The summation is: ", sum)
 }
-printSum()
+// printSum()
 
 
 
@@ -44,10 +44,25 @@ const printMax = (arr) => {
 
     return result
 }
-printMax([-500, 4, 9, 235])
+// printMax([-500, 4, 9, 235])
 
 // Array with Odds
 // Create an array with all the odd integers between 1 and 255 (inclusive).
+const arrOdds = () => {
+    // variables necessary
+    let result = []
+
+    //           inclusive
+    for (let i=1; i <= 255; i++) 
+      // not even means odd
+        if ( i % 2 !==0) 
+            //      add to last
+            result[result.length] = i
+    
+    // magic
+    return result
+}
+console.log( arrOdds() )
 
 
 // Greater Than Y
