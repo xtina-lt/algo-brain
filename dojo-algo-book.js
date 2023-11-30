@@ -9,7 +9,7 @@ const printNums = () => {
 
     for (let i = 1; i <= 255; i++) 
         result += `${i}, `
-
+          // result       // minus space and comma
     return result.substring(0, result.length - 2) 
 }
 // console.log( printNums() )
