@@ -10,9 +10,9 @@ const printNums = () => {
     for (let i = 1; i <= 255; i++) 
         result += `${i}, `
 
-    console.log( result.substring(0, result.length - 2) )
+    return result.substring(0, result.length - 2) 
 }
-// printNums()
+// console.log( printNums() )
 
 
 
@@ -28,9 +28,9 @@ const printSum = () => {
     }
 
     console.log( result.substring(0, result.length - 2) )
-    console.log("The summation is: ", sum)
+    return sum
 }
-// printSum()
+// console.log( printSum() )
 
 
 
@@ -53,7 +53,7 @@ const printMax = (arr) => {
 
     return result
 }
-// printMax([-500, 4, 9, 235])
+// console.log( printMax([-500, 4, 9, 235]) )
 
 
 
@@ -75,14 +75,30 @@ const arrOdds = () => {
     // magic
     return result
 }
-console.log( arrOdds() )
+// console.log( arrOdds() )
 
 
 
 // ###################### 5 ##################################
 // Greater Than Y
 // Given an array and a value Y, count and print the number of array values greater than Y.
+const greaterThanY = (arr, val) => {
+    // variables necessary
+    let result = 0;
 
+    // iterate through
+    for (let i=0; i<arr.length; i++){
+        // compare
+        if (arr[i] > val) 
+            // save
+            result++
+    }
+
+    // return nums greater than count
+    return result
+}
+
+console.log( greaterThanY([1,2,3,4], 3) )
 
 
 
