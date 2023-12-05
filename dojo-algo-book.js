@@ -98,17 +98,128 @@ const greaterThanY = (arr, val) => {
     return result
 }
 
-console.log( greaterThanY([1,2,3,4], 3) )
+// console.log( greaterThanY([1,2,3,4], 3) )
 
 
 
 // ####################### 6 #################################
 // Max, Min, Average
 // Given an array, print the max, min and average values for that array.
+const maxMinAv = arr => {
+    //           min       max
+    let result = [arr[0], arr[0]]
+    let count = 0
+    let sum = 0
 
+    for (let i of arr) {
+        // average = total / # of items
+        count++
+        sum += i
+
+        // check for min
+        if (i < arr[0]) result[0] = i
+        // check for max
+        if (i > arr[1]) result[1] = i
+    }
+
+    result[2] = sum / count
+
+    return result
+}
+
+// console.log( maxMinAv([1,2,3]) )     
 
 
 
 // ####################### 7 #################################
 // Swap String For Array Negative Values
 // Replace any negative array values with 'Dojo'.
+const replaceNegative = arr => {
+    for (let i=0; i<arr.length; i++)
+        if (arr[i] < 0) arr[i] = "dojo"
+    
+    return arr
+}
+// console.log( replaceNegative([0, -1, 5, -2]) )
+
+
+
+// ####################### 8 #################################
+// Print Odds 1-255
+// Print all odd integers from 1 to 255.
+const printOdds = () => {
+    for (let i = 1; i < 5; i++)
+        if (i % 2 != 0) console.log(i)
+}
+// printOdds()
+
+
+
+// ####################### 9 #################################
+// Iterate and Print Array
+// Iterate through a given array, printing each value.
+const printArr = arr => arr.map( e => console.log(e) )
+// printArr( [1,2,3] )
+
+
+
+
+// ####################### 10 #################################
+// Get and Print Average
+// Analyze an array’s values and print the average.
+let arrAvg = arr => {
+    let sum = 0
+    arr.map( e => sum += e)
+
+    return sum / arr.length
+}
+// console.log( arrAvg([1,2,3]) )
+
+
+
+// ####################### 11 #################################
+// Square the Values
+// Square each value in a given array, returning that same array with changed values.
+let squareArr = arr => {
+    for (let i in arr) arr[i] *= 2
+    // return same arr
+    // different could use map    
+    return arr
+}
+// console.log( squareArr([1,2,3]) )
+
+
+
+// ####################### 12 #################################
+// Zero Out Negative Numbers
+// Return the given array, after setting any negative values to zero.
+const zeroOut = arr => {
+    for (let i in arr)
+        if (arr[i] < 0) arr[i] = 0
+    return arr
+}
+// console.log( zeroOut([0, 1, -1, 2, -2]) )
+
+
+
+// ####################### 13 #################################
+// Shift Array Values
+// Given an array, move all values forward by one index
+// dropping the first and 
+// leaving a '0' value at the
+// end.
+const shift = arr => {
+    let temp = arr[arr.length-1]
+
+    // 1 ) SHIFT LEFT
+    for ( let i = 0; i < arr.length; i++ ) {
+        arr[i] = arr[i+1]
+    }
+    
+    // 2 )  LEAVE '0' AT THE END
+    arr[arr.length-1] = 0
+
+    return arr
+
+}
+console.log( shift([1, 2, 3, 4, 5]) )
