@@ -54,7 +54,9 @@ const threesandFives = (paramX, paramY) => {
 
 }
 
-
+// CHALLENGE : Generate Coin Change
+// Implement generateCoinChange(cents) that accepts a parameter for the number of cents, and
+// computes how to represent that amount with the smallest number of coins. Console.log the result.
 const generateCoin = cents => {
     let map = {
         "quarter": 0,
@@ -83,6 +85,14 @@ const generateCoin = cents => {
 
     return map
 }
+
+
+// CHALLENGE: Statistics to Doubles
+// Implement a ‘die’ that randomly returns an
+// integer between 1 and 6 inclusive. Roll a pair of
+// these dice, tracking the statistics until doubles
+// are rolled. Display the number of rolls, min, max,
+// and average.
 
 const rollDoubles = () => {
     let map = {'rolls' : 0, 'min':0 , 'max' :0, 'pair' : false}
@@ -125,6 +135,11 @@ const rollDoubles = () => {
 }
 
 
+// CHALLENGE: Sum To One Digit
+// Implement a function sumToOne(num) that,
+// given a number, sums that number’s digits
+// repeatedly until the sum is only one digit. Return
+// that final one digit result
 const sumToOne = num => {
     let result = 0
     num = num.toString()
