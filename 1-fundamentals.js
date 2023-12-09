@@ -121,13 +121,34 @@ const rollDoubles = () => {
     //           total / count
     //                   each roll has 2 numbers
     map["average"] = total / (map.rolls * 2)
-    console.log(total, (map.rolls * 2))
-    console.log( map)
+    return map
 }
 
 
+const sumToOne = num => {
+    let result = 0
+    num = num.toString()
+    
+    // OBJECTIVE: if the length is not just one digit
+    //            keep adding up all the digits
+    while ( num.length > 1 ) {
+        
+        // OBJECTIVE: sum of the digits of the string 
+        for (let i of num)
+            result += parseInt(i)
 
-rollDoubles()
+        // OBJECTIVE: repeat 
+        //   with the new converted number
+        num = result.toString()
+        // reset sum if need to reapeat
+        if (num.length > 1) result = 0
+    }
+
+    return result
+}
+
+console.log( 'sumToOne', sumToOne(12357) )
+// rollDoubles()
 // console.log(generateCoin(42))
 // console.log(sigma(5))
 // console.log(factorial(5))
