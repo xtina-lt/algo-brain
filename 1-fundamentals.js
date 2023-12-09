@@ -84,9 +84,51 @@ const generateCoin = cents => {
     return map
 }
 
+const rollDoubles = () => {
+    let map = {'rolls' : 0, 'min':0 , 'max' :0, 'pair' : false}
+    let arr = []
+    let total = 0
+
+    // Math.floor( Math.floor( Math.random() * inclusiveEnd ) + inclusiveStart )
+    while (!map.pair) {
+        // OBJECTIVE: get two random dice rolls
+        let diceA = Math.floor(Math.random() * 6) + 1
+        let diceB = Math.floor(Math.random() * 6) + 1
+        let current = [diceA, diceB]
+        console.log(current)
+
+        // OBJECTIVE: keep track of min and max
+        // handle first roll to compare values
+        if (map.rolls < 1) { 
+            map.min  =diceA
+            map.max = diceA
+        }
+        // check values
+        for (let i of current) {
+            if ( i < map.min ) map.min = i
+            if ( i > map.max) map.max = i
+        }
+        
+        // OBJECTIVE eep track of averange, min, and max
+        total += (diceA + diceB)
+        map.rolls++
+        
+        // check if they are pairs
+        if (current[0] == current[1]) map.pair=current
+    }
+    
+    // RETURN number of rolls, min, max, and average
+    //           total / count
+    //                   each roll has 2 numbers
+    map["average"] = total / (map.rolls * 2)
+    console.log(total, (map.rolls * 2))
+    console.log( map)
+}
 
 
+
+rollDoubles()
+// console.log(generateCoin(42))
 // console.log(sigma(5))
 // console.log(factorial(5))
 // console.log(threesandFives(1, 15))
-// console.log(generateCoin(42))
