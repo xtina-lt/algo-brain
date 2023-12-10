@@ -162,8 +162,37 @@ const sumToOne = num => {
     return result
 }
 
-console.log( 'sumToOne', sumToOne(12357) )
-// rollDoubles()
+// Implement a function that accepts two non-negative integers as arguments. Function lastDigitAtoB(a,
+//     b) should return the last digit of the first number (a) raised to an exponent of the second number (b).
+//     Examples: given (3, 4), you should return 1 (the last digit of 81: 3 * 3 * 3 * 3). Given (12, 5), return
+//     2 (the least significant digit of 248832, which is 12 * 12 * 12 * 12 * 12).
+const lastDigitAtoB = (param0, param1) => {
+    // // EDGE CASE: cannot be 0
+    // if (param0 < 0 || param1 < 0)
+    //     throw new Error("Numbers cannot be negative")
+
+    // // OBJECTIVE: GET LAST DIGIT OF A**B
+    // // 1 ) A ** B
+    // let result = Math.pow(param0, param1)
+
+    // // OBJECTIVE: get last digit
+    // // % 10 will always have a one's remainder  
+    // result = result % 10
+
+    // // OBJECTIVE: return last significant digit(LSD)
+    // return result
+
+    // SUPERWOMAN:
+    return (param0 > 0 && param1 > 0) ? 
+        Math.pow(param0, param1) % 10:
+            false
+}
+    
+
+console.log( "lastDigitAtoB:", lastDigitAtoB(3,4 ) )
+console.log( "lastDigitAtoB:", lastDigitAtoB(12,5 ) )
+console.log( "lastDigitAtoB:", lastDigitAtoB(-1,5 ) )
+// console.log( 'sumToOne', sumToOne(12357) )// rollDoubles()
 // console.log(generateCoin(42))
 // console.log(sigma(5))
 // console.log(factorial(5))
