@@ -187,11 +187,86 @@ const lastDigitAtoB = (param0, param1) => {
         Math.pow(param0, param1) % 10:
             false
 }
-    
 
-console.log( "lastDigitAtoB:", lastDigitAtoB(3,4 ) )
-console.log( "lastDigitAtoB:", lastDigitAtoB(12,5 ) )
-console.log( "lastDigitAtoB:", lastDigitAtoB(-1,5 ) )
+
+
+// Clock Hand Angles
+// Traditional clocks are increasingly uncommon, but most can still read rotating hands of hours, minutes,
+// and seconds.
+// Create function clockHandAngles(seconds) that, given the number of seconds since 12:00:00, will
+// print the angles (in degrees) of the hour, minute and second hands. As a quick review, there are 360
+// degrees in a full arc rotation. Treat “straight-up” 12:00:00 as 0 degrees for all hands.
+// 3684 = 01:01:24 = 30 deg, 6 deg, 144 deg
+const secondsPastHands = num => {
+    let seconds = 60
+    let minutes = 60
+    let hours = 12
+    let degrees = {hr : 360 / hours, min : 360 / minutes, seconds : 360 / seconds }
+    let time = {}
+
+    // OBJECTIVE: CALCULATE HOURS
+    let temp = Math.floor( num / (seconds * minutes) % 12 )
+    time["hours"] = {num : temp, deg : temp * degrees.hr}
+    // OBJECTIVE: CALCULATE MINUTES
+    temp =  Math.floor(num / (minutes) % 60  )
+    time["minutes"] = {num : temp, deg : temp * degrees.min}
+    // OBJECTIVE: CALCULATE SECONDS
+    temp = Math.floor(num % 60  )
+    time["seconds"] = {num : temp, deg : temp * degrees.seconds}
+
+
+    return time
+}
+
+// Just for funsies
+// 01:01:24 = 30 deg, 6 deg, 144 deg
+const clockAngles = str => {
+    let degrees = {
+        0 : "12:00:00",
+        hr : 360 / 12, 
+        min : 360 / 60,
+        sec : 360 / 60
+    }
+    // minutes = 360 degrees / 60 minutes
+    // 1 minute = 6 degrees
+    // hours = 360 / 12 = 30
+    // 1 hour = 30 degrees
+
+    // OBJECTIVE: GETTING THE HOURS MINUTES AND SECONDS
+    // 12:00:00 is 0 degrees
+    //   // start and end
+    //   ^  starts a string
+    //   [^:] characters that are not colons
+    //     [1]    first caputuring group ^
+    let hours = Number( str.match(/^[^:]+/) )
+        hours *= degrees.hr
+    //    /: :/  matches colons before and after
+    //   (.*?)   any carcahters(except newline) -> in a group
+    let minutes = Number(str.match(/:(.*?):/)[1])
+        minutes *= degrees.min
+    //  [^:] one or more characters that are not colons
+    //  $   the end of the string
+    let seconds = Number( str.match(/[^:]+$/) )
+        // returns [ '00', index: 6, input: '12:00:00', groups: undefined ]
+        seconds *= degrees.sec
+
+    // UPDATE THE DICIONARY
+    degrees['hours'] = hours
+    degrees['minutes'] = minutes
+    degrees['seconds'] = seconds
+
+    return degrees
+}
+
+
+
+
+// console.log( secondsPastHands(3684) )
+// console.log( clockAngles("01:01:24") )
+// console.log( clockAngles("12:00:00") )
+// console.log( "lastDigitAtoB:", lastDigitAtoB(3,4 ) )
+// console.log( "lastDigitAtoB:", lastDigitAtoB(12,5 ) )
+// console.log( "lastDigitAtoB:", lastDigitAtoB(-1,5 ) )
 // console.log( 'sumToOne', sumToOne(12357) )// rollDoubles()
 // console.log(generateCoin(42))
 // console.log(sigma(5))
