@@ -21,13 +21,13 @@ GRATITUDE NOTE:
 
 const ARR = ["alaska", "ireland", "maine"]
 
-// PUSH FRONT
+// UNSHIFT(ADD TO) FRONT
 // Given an array and an additional value, insert this
 // value at the beginning of the array. Do this
 // without using any built-in array methods.
-const myPush = (arr, val) => {
+const myUnshift = (arr, val) => {
 
-    // OBJECTIVE: PULL EACH ELEMENT TO THE END OF LENGTH
+    // OBJECTIVE: PULL(-->) EACH ELEMENT TO THE END OF LENGTH
     for (let i=arr.length; i > 0; i--)
         arr[i] = arr[i-1]
         // console.log(`${arr[i-1]} to ${arr[i]}`)
@@ -39,18 +39,18 @@ const myPush = (arr, val) => {
     return arr
 }
 
-console.log( myPush(ARR, "jersey") )
+console.log( myUnshift(ARR, "jersey") )
 
 // #############################################
-// POP FRONT
+// SHIFT(REMOVE) FRONT
 // Given an array, remove and return the value at
 // the beginning of the array. Do this without using
 // any built-in array methods except pop().
-const myPop = arr => {
+const myShift = arr => {
     // OBJECTIVE : RETURN VALUE REMOVED FROM FRONT
     let temp = arr[0]
 
-    // OBJECTIVE: PULL ELEMENTS TOWARDS INDEX 0
+    // OBJECTIVE: PULL(<--) ELEMENTS TOWARDS INDEX 0
     for (let i=0; i < arr.length; i++)
         arr[i] = arr[i+1]
 
@@ -59,7 +59,7 @@ const myPop = arr => {
     return temp
 }
 
-// console.log( myPop(ARR) )
+// console.log( myShift(ARR) )
 // console.log(ARR)
 
 
