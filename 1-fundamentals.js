@@ -5,7 +5,7 @@
     if / else statements 
     % (called modulus)
     Math.random,  Math.floor, Math.ceil 
-console.log
+    console.log
 */
 
 
