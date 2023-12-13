@@ -8,8 +8,7 @@ GRATITUDE NOTE:
     TOPICS:
         - arr for/while loops
         - arr.pop() -> take from the front and return
-        - arr.push() -> adds to index[0], and pulls
-        - arr.insertAt()
+        - arr.push() -> adds element to end , returns new array length
 */
 
 
