@@ -21,25 +21,8 @@ GRATITUDE NOTE:
 
 const ARR = ["alaska", "ireland", "maine"]
 
-// UNSHIFT(ADD TO) FRONT
-// Given an array and an additional value, insert this
-// value at the beginning of the array. Do this
-// without using any built-in array methods.
-const myUnshift = (arr, val) => {
 
-    // OBJECTIVE: PULL(-->) EACH ELEMENT TO THE END OF LENGTH
-    for (let i=arr.length; i > 0; i--)
-        arr[i] = arr[i-1]
-        // console.log(`${arr[i-1]} to ${arr[i]}`)
 
-    // OBJECTIVE: insert the desired value
-    arr[0] = val
-
-    // OBJECTIVE RETURN NEW ARRAY
-    return arr
-}
-
-console.log( myUnshift(ARR, "jersey") )
 
 // #############################################
 // SHIFT(REMOVE) FRONT
@@ -108,3 +91,81 @@ const deleteAt = (arr, idx) => {
 }
 // console.log(ARR)
 // console.log( deleteAt(ARR, 0) )
+
+
+
+
+
+// REVERSE ARRAY
+const reverse = arr => {
+    // loop through until you get to the middle
+    // use the length and subtract the index #
+    // this gets the element that mirrors it
+    for (let i=0; i < arr.length / 2; i++){
+        // save value, so it doesn't get lost
+        let temp = arr[i]
+        // replace current element
+        // with mirror element
+        arr[i] = arr[arr.length-1-i]
+        // replace the mirror element
+        // with the current element saved
+        arr[arr.length-1-i] = temp
+    }
+
+    // give the updated array back
+    return arr
+}
+
+// console.log( reverse([0,1,2,3,4,5]) )
+
+const removeNegatives = arr => {
+    let count = 0;
+
+    // 0, - 1,  2,  3,  -4
+    // <-
+    //    c++
+    //         <- move one(couunt=1)
+    //             <- move one(count =1)
+    //                  c++
+    for (let i = 0; i < arr.length; i++) {
+        // if (arr[i] < 0) {           
+        //     count++ 
+        // } else {
+        //     arr[i - count] = arr[i];
+        // }
+        (arr[i] < 0) ? 
+            count++ : 
+                arr[i - count] = arr[i];
+    }
+
+    // Adjust the length of the array 
+    // account for negative numbers
+    arr.length -= count;
+
+    return arr;
+} 
+
+// console.log( removeNegatives([0, -1, 2, 3, -4]) )
+
+
+let skyline = arr => {
+    let a = 0
+    let result = []
+    for (let i in arr){
+        // check if positive number
+        if (arr[i] > 0 && 
+            // check if greater 
+            // than last positive number
+            arr[i] > a) {
+                // update positive
+                a = arr[i]
+                // add to the end of result
+                result[result.length] = arr[i]
+        }
+        console.log(a)
+    }
+
+    return result
+}
+console.log(skyline([1,-1,7,3]))
+

@@ -33,3 +33,17 @@ const mergeFor = (x, y) => {
 // console.log(mergeWhile("abc", "def"))
 // console.log(mergeWhile("abc", "d"))
 // console.log(mergeWhile("a", "def"))
+
+
+const test = () => {
+    let arr = [4,3,1,3,4]
+    let result = 0
+    for (i of arr){
+        console.log(`i=${i}, result=${result} \ni ^ result = ${i ^ result}`)
+        result = i ^ result
+    }     
+    
+    console.log(result)
+}
+
+test()
