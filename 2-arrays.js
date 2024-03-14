@@ -152,11 +152,10 @@ let skyline = arr => {
     let a = 0
     let result = []
     for (let i in arr){
+                    // check if greater 
+                    // than last positive number
         // check if positive number
-        if (arr[i] > 0 && 
-            // check if greater 
-            // than last positive number
-            arr[i] > a) {
+        if (arr[i] > 0 && arr[i] > a) {
                 // update positive
                 a = arr[i]
                 // add to the end of result
@@ -167,5 +166,5 @@ let skyline = arr => {
 
     return result
 }
-console.log(skyline([1,-1,7,3]))
+// console.log(skyline([1,-1,7,3]))
 

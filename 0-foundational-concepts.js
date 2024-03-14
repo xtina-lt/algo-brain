@@ -222,4 +222,43 @@ const shift = arr => {
     return arr
 
 }
-console.log( shift([1, 2, 3, 4, 5]) )
+
+
+/*
+
+
+-------------JUST PLAYING------------
+
+
+
+*/
+// console.log( shift([1, 2, 3, 4, 5]) )
+// let hr = new Date().getHours()
+// let tod = (hr <= 10) ? "morning" : ( hr > 10 && hr < 20 ) ? "afternoon" : "evening"
+
+// tod = "tricked you"
+// let result = ""
+
+// try{
+// 	// SWITCH STATEMENT
+// 	switch (tod) {
+//     case "morning":
+//       result = `Rise and shine`
+//       break;
+//     case "afternoon":
+//         result = `One hour at a time`
+//       break;
+//     case "evening":
+//         result = `Getting sleepy`
+//         break;
+//     default:
+//          throw new Error("Ooopsie Daisy!!");
+//         break;
+//   }
+// 	  // logging something good
+//    console.log(`${result} ${hr}`)
+// } catch (e){
+// 	// console.log(e.message) // Ooopsie Daisy!!
+//     console.error(`Found an ${e.name}...\n Try fixing:${e.message}`)
+// }
+
