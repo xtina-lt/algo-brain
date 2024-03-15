@@ -126,9 +126,8 @@ let ransomNote = (ransomNote, magazine) =>{
 
 
 
-
-
-//SLL NODE
+const links = () => {
+ //SLL NODE
 class Unicorn {
     constructor(data, right=null, left=null){
         this.data = data
@@ -223,6 +222,29 @@ magical.addBack(new Unicorn(30))
 magical.removeFront()
 magical.logAll()
 
+}
+
+
+
+const labels = () => {
+    let result = 10
+    first: while (true) {
+        // stop at 3 !'s
+        if (result % 2 === 0)
+            console.log("even ", result)
+    
+        // get loopy
+        second: while (true){
+            if (result % 2 !== 0)
+                console.log("odd ", result)
+            if (result < 0) break first
+            result--
+        }
+    }
+    
+}
+// labels()
+
 
 /*
               SLL     ARRAY
@@ -230,3 +252,24 @@ Add to front  O(1)    O(N)
 add to back   O(N)    O(1)
 
 */
+
+
+// given a roman numberal covnert to an integer
+const romanToInt = s => {
+    let map = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000, result:0}
+
+    for (let i = 0; i < s.length; i++) {
+        // if the right is larger than the left
+        // must subract
+        (map[s[i]] < map[s[i + 1]]) ?
+            map['result'] -= map[s[i]] :
+            map['result'] += map[s[i]]
+    }
+    return map['result']
+}
+
+console.log( romanToInt("MCMXCIV") )
+
+// I: III, O: 3
+// I: LVIII, O: 58
+// MCMXCIV , 1994

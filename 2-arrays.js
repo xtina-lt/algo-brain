@@ -29,22 +29,55 @@ const ARR = ["alaska", "ireland", "maine"]
 // Given an array, remove and return the value at
 // the beginning of the array. Do this without using
 // any built-in array methods except pop().
-const myShift = arr => {
+const shiftRemoveFront = arr => {
     // OBJECTIVE : RETURN VALUE REMOVED FROM FRONT
     let temp = arr[0]
 
-    // OBJECTIVE: PULL(<--) ELEMENTS TOWARDS INDEX 0
+    // OBJECTIVE: SHIFT ELEMENTS <--
     for (let i=0; i < arr.length; i++)
         arr[i] = arr[i+1]
 
-    arr.length = arr.length - 1
+    // remove the last element
+    arr.length--
 
+    // return the removed value
     return temp
 }
+// console.log( shiftRemoveFront(ARR), ARR )
 
-// console.log( myShift(ARR) )
-// console.log(ARR)
+const unShiftAddFront = (arr, elem) => {
+    // OBJECTIVE: SHIFT ELEMENTS -->
+    for (let i=arr.length; i > 0; i-- ){
+        console.log(arr[i])
+        arr[i] = arr[i-1]
+    }
 
+    // add to the front
+    arr[0] = elem
+
+    // return updated array
+    return arr
+}
+// console.log( unShiftAddFront(ARR, "Jersey") )
+
+const popRemoveEnd = arr => {
+    // remove last element
+    arr.length--
+
+    // return updated array
+    return arr
+}
+// console.log( popRemoveEnd(ARR) )
+
+const pushAddEnd = (arr, elem) => {
+    // use the length
+    // replace the length index with the elment
+    arr[arr.length] = elem
+
+    // return the updated array
+    return arr
+}
+// console.log(pushAddEnd(ARR, "hi"))
 
 
 // INSERT AT
@@ -167,4 +200,21 @@ let skyline = arr => {
     return result
 }
 // console.log(skyline([1,-1,7,3]))
+
+
+const removeDups = arr => {
+    let set = new Set()
+    for (let i=arr.length; i>0; i--) {
+        console.log(arr[i])
+        if ( set.has(arr[i]) ){
+            console.log("found")
+            arr[i] = arr[i+1]
+        } else {
+            set.add(arr[i])
+        }
+    }
+
+    return arr
+}
+console.log(removeDups([1,1,2,2]))
 
