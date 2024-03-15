@@ -268,8 +268,23 @@ const romanToInt = s => {
     return map['result']
 }
 
-console.log( romanToInt("MCMXCIV") )
+// console.log( romanToInt("MCMXCIV") )
 
 // I: III, O: 3
 // I: LVIII, O: 58
+
 // MCMXCIV , 1994
+
+
+let res = {ing1: "bacon", ing2: "eggs", ing3: "cheese", ing4: "corn"}
+let arr = []
+for (let i=1; i < 4; i++){
+    arr.push(res[`ing${i}`])
+}
+console.log(arr)
+
+
+
+
+
+
